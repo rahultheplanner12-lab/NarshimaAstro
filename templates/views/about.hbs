@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About Us | Narsimha Astro</title>
+    <style>
+        :root {
+            --maroon: #631a2a;
+            --gold: #c99a46;
+            --cream: #fff9ef
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: #39231f;
+            font-family: Arial, sans-serif
+        }
+
+        header {
+            background: var(--maroon);
+            color: white;
+            padding: 16px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffd58a;
+            font: bold 23px Georgia, serif;
+            text-decoration: none
+        }
+
+        .brand img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #ffd58a
+        }
+
+        .banner {
+            background: linear-gradient(120deg, #541422, #842b39);
+            padding: 85px 7%;
+            text-align: center;
+            color: white
+        }
+
+        .banner h1 {
+            font: bold clamp(34px, 5vw, 58px) Georgia, serif;
+            margin: 0 0 16px
+        }
+
+        .banner p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7
+        }
+
+        .content {
+            max-width: 1100px;
+            margin: auto;
+            padding: 65px 7%
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #eadac2;
+            border-radius: 12px;
+            box-shadow: 0 8px 28px #5122190c
+        }
+
+        .card h2,
+        .content h2 {
+            font-family: Georgia, serif;
+            color: #631a2a
+        }
+
+        .card p,
+        .content p {
+            line-height: 1.75;
+            color: #665650
+        }
+
+        .btn {
+            display: inline-block;
+            border: 0;
+            border-radius: 6px;
+            background: #631a2a;
+            color: white;
+            padding: 14px 23px;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold
+        }
+
+        .btn:hover {
+            background: #842b39
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 7px
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d6c8b7;
+            border-radius: 6px;
+            font: inherit
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical
+        }
+
+        footer {
+            text-align: center;
+            background: #37141c;
+            color: #e5cdbb;
+            padding: 28px 7%;
+            font-size: 14px
+        }
+
+        .video {
+            aspect-ratio: 16/9;
+            background: #f4e8d4;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: #631a2a;
+            font-size: 20px;
+            text-align: center;
+            padding: 20px
+        }
+
+        @media(max-width:750px) {
+            header {
+                justify-content: center
+            }
+
+            nav {
+                justify-content: center
+            }
+
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .banner {
+                padding: 65px 7%
+            }
+        }
+    </style>
+    <style id="responsive-navigation">
+        header {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            flex-wrap: wrap !important;
+            gap: 16px !important;
+            position: relative;
+            z-index: 20
+        }
+
+        header .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+            text-decoration: none;
+            color: #ffd58a;
+            font: bold clamp(15px, 1.8vw, 23px) Georgia, serif;
+            white-space: nowrap
+        }
+
+        header .brand img,
+        header .header-logo {
+            width: 58px !important;
+            height: 58px !important;
+            object-fit: contain !important;
+            border-radius: 5px !important;
+            flex-shrink: 0
+        }
+
+        header .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(8px, 1.5vw, 24px);
+            flex-wrap: nowrap
+        }
+
+        header .site-nav a {
+            display: block;
+            margin: 0 !important;
+            padding: 10px 3px !important;
+            color: #fff;
+            text-decoration: none;
+            font: 500 15px Arial, sans-serif;
+            white-space: nowrap
+        }
+
+        header .site-nav a:hover,
+        header .site-nav a[aria-current="page"] {
+            color: #ffd58a
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #e3b35e;
+            border-radius: 6px;
+            color: #ffd58a;
+            padding: 9px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center
+        }
+
+        .menu-toggle svg {
+            width: 25px;
+            height: 25px;
+            display: block
+        }
+
+        @media(max-width:800px) {
+            header {
+                padding: 12px 5% !important
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto
+            }
+
+            .site-nav {
+                display: none !important;
+                position: static !important;
+                top: auto;
+                left: auto;
+                right: auto;
+                width: 100%;
+                flex-basis: 100%;
+                order: 3;
+                background: #541422;
+                padding: 12px 5% 20px;
+                box-shadow: 0 12px 20px #21000633;
+                flex-direction: column;
+                align-items: stretch !important;
+                gap: 0 !important
+            }
+
+            .site-nav.is-open {
+                display: flex !important
+            }
+
+            .site-nav a {
+                padding: 15px 12px !important;
+                border-bottom: 1px solid #ffffff20;
+                font-size: 16px !important
+            }
+
+            header .brand img,
+            header .header-logo {
+                width: 48px !important;
+                height: 48px !important
+            }
+        }
+
+        @media(max-width:360px) {
+            header .brand {
+                font-size: 14px !important
+            }
+
+            header .brand img,
+            header .header-logo {
+                width: 42px !important;
+                height: 42px !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header><a class="brand" href="index.html"><img class="header-logo" src="/images"
+                alt="Narsimha Astro logo"><span>NARSIMHA ASTRO</span></a><button class="menu-toggle" type="button"
+            aria-label="Open menu" aria-expanded="false" aria-controls="site-navigation"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg></button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a href="/">Home</a><a
+                href="/contact">Contact Us</a><a href="/about" aria-current="page">About Us</a></nav>
+    </header>
+    <main>
+        <section class="banner">
+            <h1>About Us</h1>
+            <p>Discover the vision behind Narsimha Astro and our commitment to traditional Jyotish knowledge.</p>
+        </section>
+        <section class="content">
+            <div class="grid">
+                <div class="card">
+                    <h2>Who We Are</h2>
+                    <p>Narsimha Astro is an emerging platform focused on connecting people with knowledgeable
+                        astrologers through chat, voice and video consultations.</p>
+            
+                </div>
+                <div class="card">
+                    <h2>Our Mission</h2>
+                    <p>To create an approachable space for learning about Vedic astrology, Kundli analysis, Vastu,
+                        numerology and related traditions.</p>
+                    <p>We value respectful conversations, thoughtful guidance and continuous learning.</p>
+                </div>
+            </div>
+            <div class="card" style="margin-top:24px;text-align:center">
+                <h2>Explore Narsimha Astro</h2>
+               <a class="btn"
+                    href="/consultation">Explore Services</a>
+            </div>
+        </section>
+    </main>
+    <footer>© 2026 Narsimha Astro · Vedic wisdom for modern life</footer>
+    <script>document.querySelectorAll('.menu-toggle').forEach(button => { const nav = document.getElementById('site-navigation'); button.addEventListener('click', () => { const open = nav.classList.toggle('is-open'); button.setAttribute('aria-expanded', String(open)); button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu') }); nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false') })); document.addEventListener('keydown', e => { if (e.key === 'Escape') { nav.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false') } }) })</script>
+</body>
+
+</html>

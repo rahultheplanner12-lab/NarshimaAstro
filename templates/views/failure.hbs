@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Submission Failed | Narsimha Astro</title>
+    <style>
+        :root {
+            --maroon: #631a2a;
+            --gold: #e3b35e;
+            --cream: #fff9ef
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: #39231f;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column
+        }
+
+        header {
+            background: var(--maroon);
+            padding: 20px 7%;
+            color: #ffd58a;
+            font-family: Georgia, serif;
+            font-weight: bold;
+            font-size: 24px
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 18px
+        }
+
+        .card {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            background: white;
+            border: 1px solid #eadac2;
+            border-radius: 18px;
+            padding: 52px 32px;
+            box-shadow: 0 12px 40px #51221914
+        }
+
+        .symbol {
+            display: grid;
+            place-items: center;
+            width: 88px;
+            height: 88px;
+            margin: 0 auto 22px;
+            border-radius: 50%;
+            background: #fff0ee;
+            color: #b62d36;
+            font-size: 52px;
+            font-weight: bold
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            color: var(--maroon);
+            font-size: clamp(27px, 5vw, 38px);
+            margin: 0 0 18px
+        }
+
+        p {
+            color: #665650;
+            line-height: 1.7;
+            font-size: 16px;
+            margin: 0 auto 26px;
+            max-width: 440px
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--maroon);
+            color: #fff;
+            border-radius: 7px;
+            padding: 14px 24px;
+            font-weight: bold
+        }
+
+        .btn.secondary {
+            background: #f5e9d7;
+            color: var(--maroon)
+        }
+
+        footer {
+            background: #37141c;
+            color: #e5cdbb;
+            text-align: center;
+            padding: 22px;
+            font-size: 13px
+        }
+
+        @media(max-width:480px) {
+            header {
+                text-align: center;
+                font-size: 20px
+            }
+
+            .card {
+                padding: 36px 20px
+            }
+
+            .actions {
+                flex-direction: column
+            }
+
+            .btn {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>NARSIMHA ASTRO</header>
+    <main class="container">
+        <section class="card" aria-labelledby="heading">
+            <div class="symbol" aria-hidden="true">!</div>
+            <h1 id="heading">Application Submission Failed</h1>
+            <p>We couldn't submit your astrologer application at this time. Please check your internet connection and
+                try again. If the problem continues, contact our support team.</p>
+            <div class="actions"><a class="btn" href="/">Back to Home</a></div>
+        </section>
+    </main>
+    <footer>© 2026 Narsimha Astro · Vedic wisdom for modern life</footer>
+</body>
+
+</html>

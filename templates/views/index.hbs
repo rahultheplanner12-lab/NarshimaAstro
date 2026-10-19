@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Narsimha Astro | Vedic Astrology</title>
+    <style>
+        :root {
+            --maroon: #631a2a;
+            --gold: #c99a46;
+            --cream: #fff9ef
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: var(--cream);
+            color: #39231f
+        }
+
+        header {
+            background: var(--maroon);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 7%;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffd58a
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font: 15px Arial
+        }
+
+        nav a:hover {
+            color: #ffd58a
+        }
+
+        .hero {
+            padding: 95px 7%;
+            background: radial-gradient(circle at 80% 40%, #a66b46, transparent 32%), linear-gradient(120deg, #541422, #842b39);
+            color: white;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 35px;
+            align-items: center
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 66px);
+            line-height: 1.1;
+            margin: 12px 0
+        }
+
+        .hero p {
+            font: 18px/1.7 Arial;
+            max-width: 620px
+        }
+
+        .eyebrow {
+            color: #f9d391;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font: 13px Arial
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e3b35e;
+            color: #431b1d;
+            padding: 15px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font: bold 15px Arial;
+            margin: 12px 10px 0 0;
+            border: 0;
+            cursor: pointer
+        }
+
+        .btn.alt {
+            background: transparent;
+            border: 1px solid #e3b35e;
+            color: white
+        }
+
+        .mandala {
+            height: 310px;
+            width: 310px;
+            max-width: 100%;
+            aspect-ratio: 1;
+            border: 2px solid #e3b35e;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: auto;
+            box-shadow: 0 0 0 18px #e3b35e22, 0 0 0 38px #e3b35e13;
+            font-size: 110px;
+            color: #f7c96b
+        }
+
+        .section {
+            padding: 70px 7%;
+            text-align: center
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin: 0 0 14px
+        }
+
+        .section>p {
+            font: 16px/1.6 Arial;
+            color: #6e5b50
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 35px
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #eadac2;
+            border-radius: 12px;
+            padding: 30px 24px;
+            box-shadow: 0 8px 28px #5122190c
+        }
+
+        .card .symbol {
+            font-size: 38px
+        }
+
+        .card h3 {
+            font-size: 23px
+        }
+
+        .card p {
+            font: 15px/1.65 Arial;
+            color: #665650
+        }
+
+        .card a {
+            color: #822c3a;
+            font: bold 14px Arial
+        }
+
+        .band {
+            background: #f4e8d4
+        }
+
+        .formbox {
+            max-width: 700px;
+            margin: 30px auto 0;
+            text-align: left;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 30px #51221912
+        }
+
+        .formgrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px
+        }
+
+        label {
+            font: 14px Arial;
+            display: block;
+            margin-bottom: 7px
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d6c8b7;
+            border-radius: 6px;
+            font: 15px Arial
+        }
+
+        .formbox .btn {
+            background: var(--maroon);
+            color: white
+        }
+
+        .note {
+            font: 13px Arial;
+            color: #6b605b
+        }
+
+        .cta {
+            background: var(--maroon);
+            color: white;
+            text-align: center;
+            padding: 60px 7%
+        }
+
+        .cta h2 {
+            font-size: 36px
+        }
+
+        footer {
+            background: #37141c;
+            color: #e5cdbb;
+            padding: 30px 7%;
+            font: 14px Arial;
+            text-align: center
+        }
+
+        @media(max-width:750px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 65px 7%
+            }
+
+            .mandala {
+                width: 210px;
+                height: 210px;
+                font-size: 75px
+            }
+
+            .cards {
+                grid-template-columns: 1fr
+            }
+
+            .formgrid {
+                grid-template-columns: 1fr
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 7px
+            }
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .header-logo {
+            width: 62px;
+            height: 62px;
+            object-fit: cover;
+            border-radius: 50%;
+            object-position: center 35%
+        }
+
+        .hero-logo {
+            width: min(390px, 90vw);
+            margin: auto
+        }
+
+        .hero-logo img {
+            width: 100%;
+            display: block;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px #21000644
+        }
+
+        @media(max-width:650px) {
+            .header-logo {
+                width: 48px;
+                height: 48px
+            }
+
+            .brand {
+                font-size: 19px
+            }
+
+            .hero-logo {
+                width: min(320px, 85vw)
+            }
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center
+        }
+
+        nav a {
+            margin: 0;
+            padding: 8px 5px
+        }
+
+        header {
+            position: relative
+        }
+
+        @media(max-width:750px) {
+            header {
+                justify-content: center;
+                text-align: center
+            }
+
+            nav {
+                justify-content: center
+            }
+
+            .brand {
+                justify-content: center
+            }
+        }
+    </style>
+    <style id="responsive-navigation">
+        header {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            flex-wrap: wrap !important;
+            gap: 16px !important;
+            position: relative;
+            z-index: 20
+        }
+
+        header .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+            text-decoration: none;
+            color: #ffd58a;
+            font: bold clamp(15px, 1.8vw, 23px) Georgia, serif;
+            white-space: nowrap
+        }
+
+        header .brand img,
+        header .header-logo {
+            width: 58px !important;
+            height: 58px !important;
+            object-fit: contain !important;
+            border-radius: 5px !important;
+            flex-shrink: 0
+        }
+
+        header .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(8px, 1.5vw, 24px);
+            flex-wrap: nowrap
+        }
+
+        header .site-nav a {
+            display: block;
+            margin: 0 !important;
+            padding: 10px 3px !important;
+            color: #fff;
+            text-decoration: none;
+            font: 500 15px Arial, sans-serif;
+            white-space: nowrap
+        }
+
+        header .site-nav a:hover,
+        header .site-nav a[aria-current="page"] {
+            color: #ffd58a
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #e3b35e;
+            border-radius: 6px;
+            color: #ffd58a;
+            padding: 9px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center
+        }
+
+        .menu-toggle svg {
+            width: 25px;
+            height: 25px;
+            display: block
+        }
+
+        @media(max-width:800px) {
+            header {
+                padding: 12px 5% !important
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto
+            }
+
+            .site-nav {
+                display: none !important;
+                position: static !important;
+                top: auto;
+                left: auto;
+                right: auto;
+                width: 100%;
+                flex-basis: 100%;
+                order: 3;
+                background: #541422;
+                padding: 12px 5% 20px;
+                box-shadow: 0 12px 20px #21000633;
+                flex-direction: column;
+                align-items: stretch !important;
+                gap: 0 !important
+            }
+
+            .site-nav.is-open {
+                display: flex !important
+            }
+
+            .site-nav a {
+                padding: 15px 12px !important;
+                border-bottom: 1px solid #ffffff20;
+                font-size: 16px !important
+            }
+
+            header .brand img,
+            header .header-logo {
+                width: 48px !important;
+                height: 48px !important
+            }
+        }
+
+        @media(max-width:360px) {
+            header .brand {
+                font-size: 14px !important
+            }
+
+            header .brand img,
+            header .header-logo {
+                width: 42px !important;
+                height: 42px !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header><a class="brand" href="/" narsimha-logo><img class="header-logo" src="/images"
+                alt="Narsimha Astro logo"><span>NARSIMHA ASTRO</span></a><button class="menu-toggle" type="button"
+            aria-label="Open menu" aria-expanded="false" aria-controls="site-navigation"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg></button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a href="/"
+                aria-current="page">Home</a><a href="/contact">Contact Us</a><a href="/about">About Us</a></nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div>
+                <div class="eyebrow">Ancient wisdom · Modern guidance</div>
+                <h1>Discover Your Path Through Vedic Astrology</h1>
+                <p>Connect with knowledgeable astrologers for personal guidance, birth-chart insights, Vastu, numerology
+                    and traditional Jyotish learning.</p>
+            </div>
+            <div class="hero-logo"><img src="/images" alt="Lord Narasimha — Narsimha Astro"></div>
+        </section>
+        <section class="section" id="services">
+            <div class="eyebrow" style="color:#9c6d30">Our offerings</div>
+            <h2>Explore Our Astrology Services</h2>
+            <p>Traditional Vedic knowledge, thoughtfully presented for today's seekers.</p>
+            <div class="cards">
+                <article class="card">
+                    <div class="symbol">☀️</div>
+                    <h3>Vedic Astrology</h3>
+                    <p>Explore planetary influences and personal birth-chart interpretations.</p>
+                </article>
+                <article class="card">
+                    <div class="symbol">🌙</div>
+                    <h3>Kundli Analysis</h3>
+                    <p>Discuss your natal chart, planetary placements and important life questions.</p>
+                </article>
+                <article class="card">
+                    <div class="symbol">🪷</div>
+                    <h3>Vastu & Numerology</h3>
+                    <p>Discover traditional perspectives on spaces, names and numbers.</p>
+                </article>
+            </div>
+        </section>
+        <section class="cta" id="consult">
+            <h2>Speak With an Astrologer</h2>
+            <p>Personal consultations through chat, voice and video calls.</p><a class="btn"
+                href="/consultation">Request a
+                Consultation</a>
+            <p class="note" style="color:#ead4c4">Booking, payments and live calls can be connected when your platform
+                backend is ready.</p>
+        </section>
+    </main>
+    <footer>© 2026 Narsimha Astro · Vedic wisdom for modern life</footer>
+    <script>document.querySelectorAll('.menu-toggle').forEach(button => { const nav = document.getElementById('site-navigation'); button.addEventListener('click', () => { const open = nav.classList.toggle('is-open'); button.setAttribute('aria-expanded', String(open)); button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu') }); nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false') })); document.addEventListener('keydown', e => { if (e.key === 'Escape') { nav.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false') } }) })</script>
+</body>
+
+</html>

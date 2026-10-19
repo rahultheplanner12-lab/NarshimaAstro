@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Submitted Successfully | Narsimha Astro</title>
+  <style>
+    :root {
+      --maroon: #631a2a;
+      --gold: #d7a34e;
+      --cream: #fff9ef;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--cream);
+      color: #39231f;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: var(--maroon);
+      color: #f8d590;
+      padding: 20px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      font: 700 clamp(19px, 3vw, 26px) Georgia, serif;
+      letter-spacing: .5px;
+    }
+
+    .home-link {
+      color: #ffe0a4;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 56px 18px;
+    }
+
+    .success-card {
+      width: min(100%, 610px);
+      background: white;
+      border: 1px solid #eadac2;
+      border-radius: 18px;
+      box-shadow: 0 15px 45px #51221918;
+      padding: clamp(30px, 6vw, 58px);
+      text-align: center;
+    }
+
+    .check {
+      margin: 0 auto 24px;
+      width: 94px;
+      height: 94px;
+      display: grid;
+      place-items: center;
+      background: #edf8ef;
+      border: 3px solid #369d58;
+      border-radius: 50%;
+      color: #268746;
+      font-size: 55px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font: 700 clamp(28px, 5vw, 40px)/1.2 Georgia, serif;
+      color: var(--maroon);
+      margin: 0 0 20px;
+    }
+
+    p {
+      color: #655650;
+      line-height: 1.8;
+      font-size: 16px;
+      margin: 0 0 18px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 15px 30px;
+      border-radius: 7px;
+      background: var(--maroon);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #842b39;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px 16px;
+      background: #37141c;
+      color: #e5cdbb;
+      font-size: 14px;
+    }
+
+    @media(max-width:480px) {
+      header {
+        padding: 18px 5%;
+      }
+
+      .home-link {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="brand">NARSIMHA ASTRO</div>
+  </header>
+  <main>
+    <section class="success-card" aria-labelledby="success-title">
+      <div class="check" aria-hidden="true">✓</div>
+      <h1 id="success-title">Application Submitted Successfully!</h1>
+      <p>Thank you for applying to join <strong>Narsimha Astro</strong> as an astrologer.</p>
+      <p>We have received your application. Our team will review your details and contact you regarding the next steps,
+        including a video interview if shortlisted.</p>
+      <a class="button" href="/">Back to Home</a>
+    </section>
+  </main>
+  <footer>© 2026 Narsimha Astro · Vedic wisdom for modern life</footer>
+</body>
+
+</html>

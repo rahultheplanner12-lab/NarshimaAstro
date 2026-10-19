@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Contact Us | Narsimha Astro</title>
+    <style>
+        :root {
+            --maroon: #631a2a;
+            --gold: #c99a46;
+            --cream: #fff9ef
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--cream);
+            color: #39231f;
+            font-family: Arial, sans-serif
+        }
+
+        header {
+            background: var(--maroon);
+            color: white;
+            padding: 16px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffd58a;
+            font: bold 23px Georgia, serif;
+            text-decoration: none
+        }
+
+        .brand img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #ffd58a
+        }
+
+        .banner {
+            background: linear-gradient(120deg, #541422, #842b39);
+            padding: 85px 7%;
+            text-align: center;
+            color: white
+        }
+
+        .banner h1 {
+            font: bold clamp(34px, 5vw, 58px) Georgia, serif;
+            margin: 0 0 16px
+        }
+
+        .banner p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7
+        }
+
+        .content {
+            max-width: 1100px;
+            margin: auto;
+            padding: 65px 7%
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #eadac2;
+            border-radius: 12px;
+            box-shadow: 0 8px 28px #5122190c
+        }
+
+        .card h2,
+        .content h2 {
+            font-family: Georgia, serif;
+            color: #631a2a
+        }
+
+        .card p,
+        .content p {
+            line-height: 1.75;
+            color: #665650
+        }
+
+        .btn {
+            display: inline-block;
+            border: 0;
+            border-radius: 6px;
+            background: #631a2a;
+            color: white;
+            padding: 14px 23px;
+            margin: 51px;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: bold
+        }
+
+        .btn:hover {
+            background: #842b39
+        }
+
+        label {
+            display: block;
+            margin: 14px 0 7px
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d6c8b7;
+            border-radius: 6px;
+            font: inherit
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical
+        }
+
+        footer {
+            text-align: center;
+            background: #37141c;
+            color: #e5cdbb;
+            padding: 28px 7%;
+            font-size: 14px
+        }
+
+        .video {
+            aspect-ratio: 16/9;
+            background: #f4e8d4;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: #631a2a;
+            font-size: 20px;
+            text-align: center;
+            padding: 20px
+        }
+
+        @media(max-width:750px) {
+            header {
+                justify-content: center
+            }
+
+            nav {
+                justify-content: center
+            }
+
+            .grid {
+                grid-template-columns: 1fr
+            }
+
+            .banner {
+                padding: 65px 7%
+            }
+        }
+    </style>
+    <style id="responsive-navigation">
+        header {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            flex-wrap: wrap !important;
+            gap: 16px !important;
+            position: relative;
+            z-index: 20
+        }
+
+        header .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+            text-decoration: none;
+            color: #ffd58a;
+            font: bold clamp(15px, 1.8vw, 23px) Georgia, serif;
+            white-space: nowrap
+        }
+
+        header .brand img,
+        header .header-logo {
+            width: 58px !important;
+            height: 58px !important;
+            object-fit: contain !important;
+            border-radius: 5px !important;
+            flex-shrink: 0
+        }
+
+        header .site-nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(8px, 1.5vw, 24px);
+            flex-wrap: nowrap
+        }
+
+        header .site-nav a {
+            display: block;
+            margin: 0 !important;
+            padding: 10px 3px !important;
+            color: #fff;
+            text-decoration: none;
+            font: 500 15px Arial, sans-serif;
+            white-space: nowrap
+        }
+
+        header .site-nav a:hover,
+        header .site-nav a[aria-current="page"] {
+            color: #ffd58a
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #e3b35e;
+            border-radius: 6px;
+            color: #ffd58a;
+            padding: 9px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center
+        }
+
+        .menu-toggle svg {
+            width: 25px;
+            height: 25px;
+            display: block
+        }
+
+        @media(max-width:800px) {
+            header {
+                padding: 12px 5% !important
+            }
+
+            .menu-toggle {
+                display: flex;
+                margin-left: auto
+            }
+
+            .site-nav {
+                display: none !important;
+                position: static !important;
+                top: auto;
+                left: auto;
+                right: auto;
+                width: 100%;
+                flex-basis: 100%;
+                order: 3;
+                background: #541422;
+                padding: 12px 5% 20px;
+                box-shadow: 0 12px 20px #21000633;
+                flex-direction: column;
+                align-items: stretch !important;
+                gap: 0 !important
+            }
+
+            .site-nav.is-open {
+                display: flex !important
+            }
+
+            .site-nav a {
+                padding: 15px 12px !important;
+                border-bottom: 1px solid #ffffff20;
+                font-size: 16px !important
+            }
+
+            header .brand img,
+            header .header-logo {
+                width: 48px !important;
+                height: 48px !important
+            }
+        }
+
+        @media(max-width:360px) {
+            header .brand {
+                font-size: 14px !important
+            }
+
+            header .brand img,
+            header .header-logo {
+                width: 42px !important;
+                height: 42px !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header><a class="brand" href="index.html"><img class="header-logo" src="/images"
+                alt="Narsimha Astro logo"><span>NARSIMHA ASTRO</span></a><button class="menu-toggle" type="button"
+            aria-label="Open menu" aria-expanded="false" aria-controls="site-navigation"><svg viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg></button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a href="/">Home</a><a
+                href="/contact" aria-current="page">Contact Us</a><a href="/about">About Us</a></nav>
+    </header>
+    <main>
+        <section class="banner">
+            <h1>Apply as An Astrologer</h1>
+            <p>Questions about consultations, courses or joining our platform? Get in touch.</p>
+        </section>
+        <section class="content">
+            <div class="grid">
+                <div class="card">
+
+                    <h2>Apply as an Astrologer</h2>
+
+                    <form id="astrologerForm" method="post">
+
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="fullName" required maxlength="100"
+                            placeholder="Enter your full name">
+
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="you@example.com">
+
+                        <label for="phone">Mobile Number</label>
+                        <input type="tel" id="phone" name="phone" required pattern="[6-9][0-9]{9}" maxlength="10"
+                            placeholder="Enter your mobile number">
+
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required placeholder="Enter your city">
+
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" required placeholder="Enter your state">
+
+                        <label for="experience">Years of Experience</label>
+                        <input type="number" id="experience" name="experience" min="0" required
+                            placeholder="Years of astrology experience">
+
+                        <label for="specialization">Astrology Specialization</label>
+                        <select id="specialization" name="specialization" required>
+                            <option value="">Select Specialization</option>
+                            <option value="Vedic Astrology">Vedic Astrology</option>
+                            <option value="KP Astrology">KP Astrology</option>
+                            <option value="Lal Kitab">Lal Kitab</option>
+                            <option value="Numerology">Numerology</option>
+                            <option value="Palmistry">Palmistry</option>
+                            <option value="Tarot Reading">Tarot Reading</option>
+                            <option value="Vastu Shastra">Vastu Shastra</option>
+                            <option value="Prashna Kundali">Prashna Kundali</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                        <label for="languages">Languages Known</label>
+                        <input type="text" id="languages" name="languages" required
+                            placeholder="e.g. Hindi, English, Bengali">
+
+                        <label for="consultationModes">Preferred Consultation Mode</label>
+                        <select id="consultationModes" name="consultationModes" required>
+                            <option value="">Select Consultation Mode</option>
+                            <option value="Chat">Chat</option>
+                            <option value="Voice Call">Voice Call</option>
+                            <option value="Video Call">Video Call</option>
+                            <option value="All">All Three</option>
+                        </select>
+
+                        <label for="availableHoursPerDay">
+                            Available Hours Per Day
+                        </label>
+                        <select id="availableHoursPerDay" name="availableHoursPerDay" required>
+                            <option value="">Select Availability</option>
+                            <option value="5">5 Hours</option>
+                            <option value="6">6 Hours</option>
+                            <option value="7">7 Hours</option>
+                            <option value="8">8 Hours</option>
+                            <option value="9">More Than 8 Hours</option>
+                        </select>
+
+                        <label for="aboutYourself">
+                            Tell Us About Your Astrology Experience
+                        </label>
+                        <textarea id="aboutYourself" name="aboutYourself" rows="5" maxlength="2000" required
+                            placeholder="Describe your astrology knowledge, experience and expertise"></textarea>
+
+                        <label for="interviewAvailability">
+                            Are You Available for a Video Interview?
+                        </label>
+                        <select id="interviewAvailability" name="interviewAvailability" required>
+                            <option value="">Select Option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    
+                        <button class="btn" type="submit">
+                            Submit Application
+                        </button>
+
+                        <p style="font-size:13px">
+                            Our recruitment team will review your application
+                            and contact shortlisted candidates for a video interview.
+                        </p>
+
+                    </form>
+
+                </div>
+                <div class="card">
+                    <h2>Contact Information</h2>
+                    <p><strong>Email:</strong> <a
+                            href="mailto:rahultheplanner12@gmail.com">rahultheplanner12@gmail.com</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+917295886271">+91 7295886271</a></p>
+                    <p>For astrology consultations, courses and astrologer onboarding, please reach out using the
+                        details above.</p><a class="btn" href="/consultation">Consultation Details</a>
+                </div>
+            </div>
+            <script>document.getElementById('contactForm').addEventListener('submit', function (e) { e.preventDefault(); const val = id => document.getElementById(id).value; const subject = encodeURIComponent('[Narsimha Astro] ' + val('topic')); const body = encodeURIComponent('Name: ' + val('name') + '\nEmail: ' + val('email') + '\n\n' + val('message')); window.location.href = 'mailto:rahultheplanner12@gmail.com?subject=' + subject + '&body=' + body; });</script>
+        </section>
+    </main>
+    <footer>© 2026 Narsimha Astro · Vedic wisdom for modern life</footer>
+    <script>document.querySelectorAll('.menu-toggle').forEach(button => { const nav = document.getElementById('site-navigation'); button.addEventListener('click', () => { const open = nav.classList.toggle('is-open'); button.setAttribute('aria-expanded', String(open)); button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu') }); nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { nav.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false') })); document.addEventListener('keydown', e => { if (e.key === 'Escape') { nav.classList.remove('is-open'); button.setAttribute('aria-expanded', 'false') } }) })</script>
+</body>
+
+</html>
